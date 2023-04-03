@@ -49,12 +49,16 @@ def index():
 
 @app.route("/library", methods=["GET", "POST"])
 def library():
-    # Retrieve data from API
+    # Retrieve data from API for all books
     url = base_url + "/books"
     print(url)
     response = requests.get(url)
     all_books = response.json()
     print(all_books)
+
+    # TODO: add error handling for API call
+    # TODO: add error handling for no books returned
+    # TODO: should SQL query only bring back select information? library_user, book_id, title, author
 
     # # Render template with data
     return render_template("library.html", books=all_books)
@@ -62,13 +66,16 @@ def library():
 
 @app.route("/book-details/<int:book_id>", methods=["GET", "POST"])
 def book_details(book_id):
-    # # Retrieve data from API
-    # url = f"https://example.com/api/data/{item_id}"
-    # response = requests.get(url)
-    # data = response.json()
+    # Retrieve individual book data from API
+    url = base_url + f"/book/{book_id}"
+    response = requests.get(url)
+    one_book = response.json()
+
+    # TODO: add error handling for API call
+    # TODO: add error handling for no books returned
 
     # # Render template with data
-    return render_template("book-details.html", book=all_books[book_id])
+    return render_template("book-details.html", book=one_book)
 
 
 @app.route("/add-book", methods=["GET", "POST"])
