@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "seasdfcrasdet"
 
-all_books = [
+xall_books = [
     {
         "book_id": 0,
         "library_user": "colbert",
@@ -39,6 +39,8 @@ all_books = [
     },
 ]
 
+base_url = "https://my-library-api.azurewebsites.net/api/v1"
+
 
 @app.route("/")
 def index():
@@ -47,10 +49,12 @@ def index():
 
 @app.route("/library", methods=["GET", "POST"])
 def library():
-    # # Retrieve data from API
-    # url = "https://example.com/api/data"
-    # response = requests.get(url)
-    # data = response.json()
+    # Retrieve data from API
+    url = base_url + "/books"
+    print(url)
+    response = requests.get(url)
+    all_books = response.json()
+    print(all_books)
 
     # # Render template with data
     return render_template("library.html", books=all_books)
