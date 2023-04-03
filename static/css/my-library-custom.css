@@ -1,0 +1,15 @@
+/* custom colors for my library app */
+/* #f1f1f1 - light gray - readonly input field */
+
+.book_title {
+  font-style: italic;
+}
+
+.readonly {
+  background-color: #f1f1f1;
+  cursor: not-allowed;
+}
+
+.book_value {
+  font-style: italic;
+}

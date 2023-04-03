@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block page_title %} Edit book details {% endblock %} {%
+block content %}
+<main>
+  {% if book %} 
+  <h2>Edit <span class="book_title">{{ book.title }}</span> Details</h2>
+  <form action="{{ url_for('update_book', book_id=book['book_id']) }}" method="POST">
+    <div>
+  <label for="book_id">Book ID:
+    <input type="text" class="readonly" name="book_id" id="book_id" value="{{ book.book_id }}" readonly/>
+  </label>
+</div><div>
+  <label for="library_user">Library User:
+    <input type="text" name="library_user" id="library_user" value="{{ book.library_user }}"/>
+  </label>
+  </div><div>
+  <label for="title">Title:
+    <input type="text" name="title" id="title" value="{{ book.title }}" />
+  </label></div><div>
+  <label for="author">Author:
+    <input type="text" name="author" id="author" value="{{ book.author }}" /> 
+  </label></div><div>
+  <label for="isbn">ISBN:
+    <input type="text" name="isbn" id="isbn" value="{{ book.isbn }}" /> 
+  </label></div><div>
+  <label for="pages">Pages:
+    <input type="text" name="pages" id="pages" value="{{ book.pages }}" />  
+  </label></div><div>
+  <label for="book_type">Book Type:
+    <input type="text" name="book_type" id="book_type" value="{{ book.book_type }}" />  
+  </label></div><div>
+  <label for="date_read">Date Read:
+    <input type="text" name="date_read" id="date_read" value="{{ book.date_read }}" />
+  </label></div><div>
+  <label for="genre">Genre:
+    <input type="text" name="genre" id="genre" value="{{ book.genre }}" />
+  </label></div><div>
+  <label for="format">Format:
+    <input type="text" name="format" id="format" value="{{ book.format }}" />
+  </label></div><div>
+  <label for="source">Source:
+    <input type="text" name="source" id="source" value="{{ book.source }}" />
+  </label></div><div>
+  <label for="evaluation">Evaluation:
+    <input type="text" name="evaluation" id="evaluation" value="{{ book.evaluation }}" />
+  </label></div><div>
+  <label for="created_date">Created Date:
+    <input type="text" class="readonly" name="created_date" id="created_date" value="{{ book.created_date }}" readonly/>
+  </label></div><div>
+  <label for="modified_date">Modified Date:
+    <input type="text" class="readonly" name="modified_date" id="modified_date" value="{{ book.modified_date }}" readonly/>
+  </label></div>
+  <p>&nbsp;</p>
+  <div>
+    <input type="submit" value="Update book" class="btn btn-primary"/>
+
+          </form>
+     
+    {% else %}
+      <p>Book not found.</p>
+      {% endif %}
+
+     <p>&nbsp;</p>
+    <p><a href="{{url_for('library')}}">Back to List</a></p>
+  </main>
+  {% endblock %}
+</html>

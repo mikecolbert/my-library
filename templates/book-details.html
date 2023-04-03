@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block page_title %} {{ book.title }} Details {% endblock %} {%
+block content %}
+<main>
+  {% if book %} 
+  <h2><span class="book_title">{{ book.title }}</span> Details</h2>
+  <form action=" " method="POST">
+    <div>
+  <label for="book_id">Book ID: </label><span class="book_value">{{ book.book_id }}</span></div><div>
+  <label for="library_user">Library User: </label><span class="book_value">{{ book.library_user }}</span></div><div>
+  <label for="title">Title: </label><span class="book_value">{{ book.title }}</span></div><div>
+  <label for="author">Author: </label><span class="book_value">{{ book.author }}</span> </div><div>
+  <label for="isbn">ISBN: </label><span class="book_value">{{ book.isbn }}</span> </div><div>
+  <label for="pages">Pages: </label><span class="book_value">{{ book.pages }}</span>  </div><div>
+  <label for="book_type">Book Type: </label><span class="book_value">{{ book.book_type }}</span>  </div><div>
+  <label for="date_read">Date Read: </label><span class="book_value">{{ book.date_read }}</span></div><div>
+  <label for="genre">Genre: </label><span class="book_value">{{ book.genre }}</span></div><div>
+  <label for="format">Format: </label><span class="book_value">{{ book.format }}</span></div><div>
+  <label for="source">Source: </label><span class="book_value">{{ book.source }}</span></div><div>
+  <label for="evaluation">Evaluation: </label><span class="book_value">{{ book.evaluation }}</span></div><div>
+  <label for="created_date">Created Date: </label><span class="book_value">{{ book.created_date }}</span></div><div>
+  <label for="modified_date">Modified Date: </label><span class="book_value">{{ book.modified_date }}</span></div>
+  <p>&nbsp;</p>
+  <div>
+  <input type="submit" value="Edit this book" name="edit_book" formaction="  {{ url_for('edit_book', book_id=book['book_id']) }} " />
+  <input type="submit" value="Delete this book" name="delete_book" formaction=" {{ url_for('delete_book', book_id=book['book_id']) }} " />
+ </div>
+
+          </form>
+     
+    {% else %}
+      <p>Book not found.</p>
+      {% endif %}
+
+     <p>&nbsp;</p>
+    <p><a href="{{url_for('library')}}">Back to List</a></p>
+  </main>
+  {% endblock %}
+</html>

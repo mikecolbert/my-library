@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block page_title %} Add a new book {% endblock %} {%
+block content %}
+<main>
+  <h2>Add a new book</h2>
+  <form action="{{ url_for('add_book') }}" method="POST">
+  <div>
+  
+    <label for="library_user">Library User:
+    <input type="text" name="library_user" id="library_user" value="" autofocus="autofocus"/>
+  </label>
+  </div>
+  
+  <div>
+  <label for="title">Title:
+    <input type="text" name="title" id="title" value=""/>
+  </label></div><div>
+  <label for="author">Author:
+    <input type="text" name="author" id="author" value=""/> 
+  </label></div><div>
+  <label for="isbn">ISBN:
+    <input type="text" name="isbn" id="isbn" value=""/> 
+  </label></div><div>
+  <label for="pages">Pages:
+    <input type="text" name="pages" id="pages" value=""/>  
+  </label></div><div>
+  <label for="book_type">Book Type:
+    <input type="text" name="book_type" id="book_type" value=""/>  
+  </label></div><div>
+  <label for="date_read">Date Read:
+    <input type="text" name="date_read" id="date_read" value=""/>
+  </label></div><div>
+  <label for="genre">Genre:
+    <input type="text" name="genre" id="genre" value=""/>
+  </label></div><div>
+  <label for="format">Format:
+    <input type="text" name="format" id="format" value=""/>
+  </label></div><div>
+  <label for="source">Source:
+    <input type="text" name="source" id="source" value=""/>
+  </label></div><div>
+  <label for="evaluation">Evaluation:
+    <input type="text" name="evaluation" id="evaluation" value=""/>
+  </label></div>
+  <p>&nbsp;</p>
+  <div>
+    <input type="submit" value="Add book" class="btn btn-primary"/>
+  </div>
+</form>
+  </main>
+  {% endblock %}
+</html>

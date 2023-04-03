@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block page_title %}My list of books{% endblock %}
+{% block content %}
+<main>
+  <h1>My Books</h1>
+  <p><a href="{{ url_for('add_book') }}">Add a book</a></p>
+  <table border="1">
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>Author</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+      <tr>
+        <td class="title">{{ book['title'] }}</td>
+        <td class="author">{{ book['author'] }}</td>
+        <td>
+          <form
+            action="{{ url_for('book_details', book_id=book['book_id']) }}"
+            method="post"
+          >
+            <button type="submit" class="details_button">Details</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+{% endblock %}
