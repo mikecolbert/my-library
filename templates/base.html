@@ -17,6 +17,14 @@
         <a href="{{url_for('library')}}">Library</a> |
         <a href="{{url_for('about')}}">About</a>
       </nav>
+
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <p>&nbsp;</p>
+      {{ category }}: {{ message }}
+      <p>&nbsp;</p>
+      {% endfor %} {% endif %} {% endwith %}
+
       <h1>My Library</h1>
       <hr />
       {% block content %} {% endblock %}
