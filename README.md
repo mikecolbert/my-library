@@ -3,4 +3,4 @@
 
 
 ### TODO
-- [ ] Format date_read #1
+- [ ] Format date_read
