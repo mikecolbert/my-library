@@ -182,12 +182,14 @@ def update_book():
     return render_template(url_for("library"))
 
 
-@app.route("/delete-book/<book_id>", methods=["POST"])
+@app.route(
+    "/delete-book/<book_id>", methods=["POST"]
+)  # method on the front end is POST
 def delete_book(book_id):
     if request.method == "POST":
         # Send delete request to API
         url = api_url + f"/book/{book_id}"
-        response = requests.delete(url)
+        response = requests.delete(url)  # method to the API is DELETE
 
         # Display flash message if successful
         if response.ok:
